@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- 
+Autor: Carlos Boni
+Diciembre 2022
+Muestra del examen práctico fin de trimestre
+Lenguajes de Marcas
+
+Debes hacer una página web sencilla de saludos navideños
+    para verla en teléfonos móviles.
+
+REGLAS:
+
+Se trata de un body que ocupe todo el viewport.
+
+Allí se mostrará una imagen vertical en formato .webp que
+    ocupará todo el body, o sea, la ventana completa.
+
+Cuando haya hover, o se pinche sobre la imagen, o hayan
+    transcurrido 3 segundos desde la carga de la página,
+    ésta se hará transparente y dejará visible un mensaje
+    escrito en un tamaño de letra responsivo que diga
+    "Felices Fiestas te desea <NOMBRE>"
+
+    <NOMBRE> es tu nombre, por si no hubiera quedado claro.
+
+Tamaño de letra responsivo significa que la letra será grande
+    si el viewport es grande, y pequeña si es pequeño, pero
+    siempre se verá el mensaje completo.
+
+Si el viewport estuviera horizontal, se adaptará el body a
+    formato vertical, usando como ancho el 70% del alto.
+
+ENTREGA: capturar el QR de la URL de la página que estará
+    publicada en tu github público.
+
+Cuando yo enfoque el QR con mi teléfono móvil, deberé poder verla.
+
+Este examen vale el 70% de la nota del trimestre, pues incluye
+    sustituye a la evaluación teórica también.
+
+Disponen de 120 minutos para este examen.
+
+Para aprobar, el QR debe funcionar. A partir de allí
+    la nota puede mejorar.
+
+La nota máxima la tendrá quien más y mejor uso de
+    javascript haga.
+
+USO POSIBLE DE JAVASCRIPT: desde crear el DOM completo,
+    hasta solamente creando el contador de tiempo al
+    cargar la página, pasando por modificar los estilos
+    de los elementos.
+
+AYUDA: Paso a paso para la creación de la felicitaciones navideñas
+
+Una posible solución
+
+Paso 1 creamos index HTML estilos CSS
+
+Paso 2 los relacionamos
+
+Paso 3 el body será nuestro porta retratos por lo tanto
+    le damos el estilo necesario para que ocupe todo el viewport
+
+Paso 4 en el CSS nos aseguramos con el selector *
+    de eliminar margen y padding y poner box-sizing border box
+
+Paso 5 elegimos una imagen adecuada la convertimos al formato
+    web p solicitado y la dejamos en nuestra carpeta de trabajo
+
+Paso 6 mentalmente imaginamos que en ese portarretratos
+    coincidirán 2 elementos como si fueran capas
+    superpuestas. Como si estuvieran cada una fijadas
+    con una chincheta al borde superior izquierdo del
+    body. A eso lo logramos posicionando de forma
+    absoluta cada uno de esos elementos respecto del
+    body. Entonces en el html dentro del body ponemos dichos
+    elementos uno a continuación del otro que son la imagen
+    y luego el saludo. Y nos aseguramos de que los elementos
+    ocupan toda el área del portarretratos y la imagen cubra
+    totalmente dicha área con el atributo object-fit cover.
+
+Paso 7 aplicamos estilos para que se vea la imagen al
+    cargar la página, y damos forma al texto del elemento
+    del saludo navideño; yo le pondré un fondo
+    transparente y trabajaré atributos del texto como
+    sombras bordes colores y tamaños para que sea
+    siempre bien visible. También en el texto usaré
+    la fórmula Calc y la unidad de medida em para
+    lograr la responsabilidad solicitada. El mensaje
+    por defecto tendrá estilo css tal que no se vea.
+
+Paso 8 con el media query en la hoja de estilos nos
+    aseguramos de forzar a que el tamaño del body sea
+    vertical, poniendo el ancho al 75% del alto cuando el
+    viewport sea horizontal.
+
+Paso 9 nos encargamos de dar visibilidad al saludo
+    solamente cuando se haya hecho clic o puesto el
+    cursor sobre la imagen. OPCIÓN: podemos crear efectos
+    de transición usando opacidad o animaciones.
+
+EJEMPLOS de tamaños de fuente variables, efectos, 
+    transiciones y animaciones:
+    https://carlosboniniklison.github.io/publico/LM/animaciones/
+
+Paso 10: creamos los scripts necesarios que darán
+    más nota a nuestro trabajo. Imprescindible el set timeout
+    para mostrar el saludo a los 3 segundos de cargarse la pag.
+
+Paso 11 subimos el trabajo al repositorio público
+    generamos el QR y verificamos que funcione correctamente.
+ -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felices Fiestas</title>
+    <link rel="stylesheet" href="./felices.css" />
+
+</head>
+
+<body onclick="modificarImg(event);">
+
+    <img src="./belen.webp" />
+
+
+    <div class="texto">
+        <p>Felices Fiestas</p>
+        <p>Te desea</p>
+        <p class="nombre">Alejandro</p>
+        <br><br>
+        <p class="dia"></p>
+        <p id="parpadeo">Esta invitacion es unica</p>
+        <button id="btnReproducir">Play</button>
+        <button id="btnPausar">Pausar</button>
+        <button id="btnReiniciar">Reiniciar</button>
+    </div>
+
+    <script src="./felices.js"></script>
+</body>
+
+</html>
